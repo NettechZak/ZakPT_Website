@@ -2,7 +2,7 @@
 
 A modern, interactive personal website showcasing homelabs, content creation, photography, and tech projects. Built with vanilla HTML, CSS, and JavaScript featuring a cyber-terminal aesthetic.
 
-![Website Preview]((https://nettechzak.github.io/ZakPT_Website/))
+![Website Preview]  https://nettechzak.github.io/ZakPT_Website/
 
 ---
 
