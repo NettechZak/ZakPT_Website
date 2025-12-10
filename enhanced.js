@@ -1161,7 +1161,7 @@ function enhancedTypingEffect() {
     function typeWithGlitch() {
         if (charIndex < finalText.length) {
             const char = finalText.charAt(charIndex);
-            const repeatCount = 2 + Math.floor(Math.random() * 3); // Repeat 2-4 times
+            const repeatCount = 4 + Math.floor(Math.random() * 3); // Repeat 2-4 times
             let glitchIndex = 0;
 
             // Glitch effect: show the character multiple times
