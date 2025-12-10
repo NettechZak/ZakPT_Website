@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZakPT | Cyber Projects</title>
+    <meta name="description" content="Cybersecurity projects, CTF writeups, and hacking experiments.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        .project-tag {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid;
+        }
+
+        .tag-red {
+            color: #ff5f56;
+            border-color: #ff5f56;
+            background: rgba(255, 95, 86, 0.1);
+        }
+
+        .tag-blue {
+            color: #00D1FF;
+            border-color: #00D1FF;
+            background: rgba(0, 209, 255, 0.1);
+        }
+
+        .tag-purple {
+            color: #9D00FF;
+            border-color: #9D00FF;
+            background: rgba(157, 0, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scanline"></div>
+    <div class="vignette"></div>
+
+    <header class="cyber-header">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none;">
+                <span class="bracket">[</span><span class="accent-orange">ZAK</span><span
+                    class="accent-purple">PT</span><span class="bracket">]</span>
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="content.html">CONTENT</a></li>
+                <li><a href="homelab.html">HOMELAB</a></li>
+                <li><a href="cybersecurity.html" class="active">CYBER</a></li>
+                <li><a href="photography.html">PHOTOGRAPHY</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="gear.html">GEAR</a></li>
+                <li><a href="sponsors.html">SPONSORS</a></li>
+                <li><a href="links.html">LINKS</a></li>
+            </ul>
+            <button id="search-icon-btn" class="search-icon-btn" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+        </nav>
+        <div class="coffee-status">
+            <i class="fas fa-bug"></i> <span class="mono">PROJECTS: 12</span>
+        </div>
+        <button id="adhd-toggle-btn" class="adhd-toggle-btn" aria-label="Toggle ADHD Focus Mode"
+            title="ADHD Focus Mode">
+            <i class="fas fa-brain"></i>
+            <span class="mono">FOCUS</span>
+        </button>
+    </header>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search pages, projects, content..."
+                class="search-input mono" autocomplete="off">
+            <button id="search-close-btn" class="search-close-btn" aria-label="Close search">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
+    <main>
+        <section class="page-header">
+            <h1 class="glitch-text">CYBER <span class="outline-text">PROJECTS</span></h1>
+            <p class="mono">Labs, scripts, and writeups.</p>
+            <div style="margin-top: 2rem;">
+                <a href="cybersecurity.html" class="btn-link" style="font-size: 0.9rem;">&lt; BACK TO CYBER HUB</a>
+            </div>
+        </section>
+
+        <section class="fade-in">
+            <div class="project-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-project="rubber-ducky" style="cursor: pointer;"
+                    onclick="renderCyberProjectModal('rubber-ducky')">
+                    <div class="card-image">
+                        <i class="fas fa-keyboard"></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="mono">Rubber Ducky Scripts</h3>
+                            <i class="fas fa-external-link-alt" style="color: var(--text-dim);"></i>
+                        </div>
+                        <p style="margin-bottom: 1rem;">Collection of DuckyScript payloads for authorized penetration
+                            testing and automation tasks.</p>
+                        <div class="tags">
+                            <span class="project-tag tag-red">HID Attacks</span>
+                            <span class="project-tag tag-purple">Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" data-project="wifi-audit" style="cursor: pointer;">
+                    <div class="card-image">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="mono">WiFi Audit Lab</h3>
+                            <i class="fas fa-external-link-alt" style="color: var(--text-dim);"></i>
+                        </div>
+                        <p style="margin-bottom: 1rem;">Setting up a controlled environment to test WPA3 security using
+                            Aircrack-ng and Hashcat.</p>
+                        <div class="tags">
+                            <span class="project-tag tag-red">Wireless</span>
+                            <span class="project-tag tag-blue">Research</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card" data-project="home-ids" style="cursor: pointer;">
+                    <div class="card-image">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="mono">Home IDS with Snort</h3>
+                            <i class="fas fa-external-link-alt" style="color: var(--text-dim);"></i>
+                        </div>
+                        <p style="margin-bottom: 1rem;">Implementing Snort on a Raspberry Pi to detect malicious traffic
+                            on the home network.</p>
+                        <div class="tags">
+                            <span class="project-tag tag-blue">Blue Team</span>
+                            <span class="project-tag tag-purple">Networking</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card" data-project="ctf-writeups" style="cursor: pointer;">
+                    <div class="card-image">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="mono">CTF Writeups</h3>
+                            <i class="fas fa-external-link-alt" style="color: var(--text-dim);"></i>
+                        </div>
+                        <p style="margin-bottom: 1rem;">Walkthroughs for HackTheBox and TryHackMe machines, focusing on
+                            privilege escalation.</p>
+                        <div class="tags">
+                            <span class="project-tag tag-red">CTF</span>
+                            <span class="project-tag tag-purple">Education</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card" data-project="password-analyzer" style="cursor: pointer;">
+                    <div class="card-image">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="mono">Password Strength Analyzer</h3>
+                            <i class="fas fa-external-link-alt" style="color: var(--text-dim);"></i>
+                        </div>
+                        <p style="margin-bottom: 1rem;">Python tool to evaluate password strength using entropy
+                            calculation and common pattern detection.</p>
+                        <div class="tags">
+                            <span class="project-tag tag-purple">Python</span>
+                            <span class="project-tag tag-blue">Security Tool</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card" data-project="web-scanner" style="cursor: pointer;">
+                    <div class="card-image">
+                        <i class="fas fa-spider"></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="mono">Web App Scanner</h3>
+                            <i class="fas fa-external-link-alt" style="color: var(--text-dim);"></i>
+                        </div>
+                        <p style="margin-bottom: 1rem;">Custom Python scanner to detect OWASP Top 10 vulnerabilities
+                            including SQLi and XSS.</p>
+                        <div class="tags">
+                            <span class="project-tag tag-red">Web Security</span>
+                            <span class="project-tag tag-purple">OWASP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="project-card" data-project="sql-injection-lab" style="cursor: pointer;">
+                    <div class="card-image">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="mono">SQL Injection Lab</h3>
+                            <i class="fas fa-external-link-alt" style="color: var(--text-dim);"></i>
+                        </div>
+                        <p style="margin-bottom: 1rem;">Vulnerable web app environment for practicing SQL injection
+                            techniques and remediation.</p>
+                        <div class="tags">
+                            <span class="project-tag tag-red">SQLi</span>
+                            <span class="project-tag tag-purple">Lab</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8 -->
+                <div class="project-card" data-project="packet-sniffer" style="cursor: pointer;">
+                    <div class="card-image">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="mono">Packet Sniffer</h3>
+                            <i class="fas fa-external-link-alt" style="color: var(--text-dim);"></i>
+                        </div>
+                        <p style="margin-bottom: 1rem;">Lightweight packet capture tool built with Python Scapy for
+                            network traffic analysis.</p>
+                        <div class="tags">
+                            <span class="project-tag tag-blue">Network</span>
+                            <span class="project-tag tag-purple">Python</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 9 -->
+                <div class="project-card" data-project="honeypot" style="cursor: pointer;">
+                    <div class="card-image">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="mono">Honeypot Deployment</h3>
+                            <i class="fas fa-external-link-alt" style="color: var(--text-dim);"></i>
+                        </div>
+                        <p style="margin-bottom: 1rem;">Deployed T-Pot honeypot to analyze attack patterns and threat
+                            intelligence gathering.</p>
+                        <div class="tags">
+                            <span class="project-tag tag-blue">Threat Intel</span>
+                            <span class="project-tag tag-red">Research</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 10 -->
+                <div class="project-card" data-project="ssh-hardening" style="cursor: pointer;">
+                    <div class="card-image">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="mono">SSH Hardening Guide</h3>
+                            <i class="fas fa-external-link-alt" style="color: var(--text-dim);"></i>
+                        </div>
+                        <p style="margin-bottom: 1rem;">Comprehensive guide and automation scripts for securing SSH
+                            servers against brute-force attacks.</p>
+                        <div class="tags">
+                            <span class="project-tag tag-blue">Hardening</span>
+                            <span class="project-tag tag-purple">Bash</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 11 -->
+                <div class="project-card" data-project="reverse-shell-gen" style="cursor: pointer;">
+                    <div class="card-image">
+                        <i class="fas fa-file-code"></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="mono">Reverse Shell Generator</h3>
+                            <i class="fas fa-external-link-alt" style="color: var(--text-dim);"></i>
+                        </div>
+                        <p style="margin-bottom: 1rem;">Tool to generate reverse shell payloads for multiple languages
+                            and platforms.</p>
+                        <div class="tags">
+                            <span class="project-tag tag-red">Payloads</span>
+                            <span class="project-tag tag-purple">Exploitation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 12 -->
+                <div class="project-card" data-project="phishing-sim" style="cursor: pointer;">
+                    <div class="card-image">
+                        <i class="fas fa-fingerprint"></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="mono">Phishing Awareness Sim</h3>
+                            <i class="fas fa-external-link-alt" style="color: var(--text-dim);"></i>
+                        </div>
+                        <p style="margin-bottom: 1rem;">GoPhish-based simulation platform for training users to
+                            recognize phishing attempts.</p>
+                        <div class="tags">
+                            <span class="project-tag tag-blue">Awareness</span>
+                            <span class="project-tag tag-red">Social Engineering</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Detail Modal -->
+    <div id="detail-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <span class="bracket">[</span><span class="accent-orange">ZAK</span><span
+                    class="accent-purple">PT</span><span class="bracket">]</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">GITHUB</a>
+                <a href="#">TWITTER</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="adhd-mode.js"></script>
+    <script src="enhanced.js"></script>
+</body>
+
+</html>

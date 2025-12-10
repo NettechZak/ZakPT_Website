@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZakPT | Homelab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="scanline"></div>
+    <div class="vignette"></div>
+
+    <header class="cyber-header">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none;">
+                <span class="bracket">[</span><span class="accent-orange">ZAK</span><span
+                    class="accent-purple">PT</span><span class="bracket">]</span>
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="content.html">CONTENT</a></li>
+                <li><a href="homelab.html" class="active">HOMELAB</a></li>
+                <li><a href="cybersecurity.html">CYBER</a></li>
+                <li><a href="photography.html">PHOTOGRAPHY</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="gear.html">GEAR</a></li>
+                <li><a href="sponsors.html">SPONSORS</a></li>
+                <li><a href="links.html">LINKS</a></li>
+            </ul>
+            <button id="search-icon-btn" class="search-icon-btn" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+        </nav>
+        <div class="coffee-status">
+            <i class="fas fa-server"></i> <span class="mono">UPTIME: 99.9%</span>
+        </div>
+        <button id="adhd-toggle-btn" class="adhd-toggle-btn" aria-label="Toggle ADHD Focus Mode"
+            title="ADHD Focus Mode">
+            <i class="fas fa-brain"></i>
+            <span class="mono">FOCUS</span>
+        </button>
+    </header>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search pages, projects, content..."
+                class="search-input mono" autocomplete="off">
+            <button id="search-close-btn" class="search-close-btn" aria-label="Close search">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
+    <!-- Detail Modal -->
+    <div id="detail-modal" class="detail-modal">
+        <div class="modal-content">
+            <button class="modal-close-btn" aria-label="Close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modal-body" class="modal-body"></div>
+        </div>
+    </div>
+
+    <main>
+        <section class="page-header">
+            <h1 class="glitch-text">THE <span class="outline-text">LAB</span></h1>
+            <p class="mono">Where packets go to die (and be reborn).</p>
+            <div class="status-badges">
+                <span class="badge online"><span class="pulse-dot"></span> ALL SYSTEMS OPERATIONAL</span>
+                <span class="badge mono">LAST REBOOT: 47 DAYS AGO</span>
+            </div>
+        </section>
+
+        <!-- Live Stats Dashboard -->
+        <section class="dashboard-grid fade-in">
+            <div class="stat-widget">
+                <div class="widget-icon">⚡</div>
+                <div class="widget-content">
+                    <h3 class="mono">POWER DRAW</h3>
+                    <div class="stat-number accent-orange">450W</div>
+                    <div class="stat-bar">
+                        <div class="stat-fill" style="width: 45%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="stat-widget">
+                <div class="widget-icon">🌡️</div>
+                <div class="widget-content">
+                    <h3 class="mono">AVG TEMP</h3>
+                    <div class="stat-number accent-blue">24°C</div>
+                    <div class="stat-bar">
+                        <div class="stat-fill" style="width: 30%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="stat-widget">
+                <div class="widget-icon">💾</div>
+                <div class="widget-content">
+                    <h3 class="mono">STORAGE</h3>
+                    <div class="stat-number accent-purple">42TB / 64TB</div>
+                    <div class="stat-bar">
+                        <div class="stat-fill" style="width: 65%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="stat-widget">
+                <div class="widget-icon">📊</div>
+                <div class="widget-content">
+                    <h3 class="mono">UPTIME</h3>
+                    <div class="stat-number accent-green">99.999%</div>
+                    <div class="stat-bar">
+                        <div class="stat-fill" style="width: 99%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Rack Visualization -->
+        <section class="rack-visualization fade-in">
+            <h2><span class="mono">01.</span> THE RACK</h2>
+            <div class="rack-3d">
+                <div class="server-bay">
+                    <div class="server-unit active" data-unit="1" data-server="proxmox-01" style="cursor:pointer;">
+                        <div class="server-face">
+                            <div class="server-label mono">PROXMOX-01</div>
+                            <div class="led-strip">
+                                <span class="led green blink-slow"></span>
+                                <span class="led green blink-fast"></span>
+                                <span class="led orange"></span>
+                            </div>
+                            <div class="server-specs mono">2x E5-2697 v2 • 128GB RAM</div>
+                        </div>
+                    </div>
+                    <div class="server-unit active" data-unit="2" data-server="truenas-core" style="cursor:pointer;">
+                        <div class="server-face">
+                            <div class="server-label mono">TRUENAS-SCALE</div>
+                            <div class="led-strip">
+                                <span class="led green"></span>
+                                <span class="led green blink-random"></span>
+                            </div>
+                            <div class="server-specs mono">8x 8TB IronWolf • ZFS Z2</div>
+                        </div>
+                    </div>
+                    <div class="server-unit active" data-unit="3" data-server="nuc-cluster-01" style="cursor:pointer;">
+                        <div class="server-face">
+                            <div class="server-label mono">NUC-CLUSTER-01</div>
+                            <div class="led-strip">
+                                <span class="led green blink-fast"></span>
+                                <span class="led blue"></span>
+                            </div>
+                            <div class="server-specs mono">i7-1165G7 • 64GB RAM</div>
+                        </div>
+                    </div>
+                    <div class="server-unit switch-unit active" data-unit="4" data-server="unifi-udm-pro"
+                        style="cursor:pointer;">
+                        <div class="server-face">
+                            <div class="server-label mono">UDM-PRO</div>
+                            <div class="led-strip">
+                                <span class="led blue blink-slow"></span>
+                                <span class="led blue blink-fast"></span>
+                                <span class="led blue blink-random"></span>
+                            </div>
+                            <div class="port-grid" id="udm-pro-ports"></div>
+                        </div>
+                    </div>
+                    <div class="server-unit switch-unit active" data-unit="5" data-server="udm-enterprise-poe"
+                        style="cursor:pointer;">
+                        <div class="server-face">
+                            <div class="server-label mono">UDM-Enterprise-Campus-PoE</div>
+                            <div class="led-strip">
+                                <span class="led blue blink-slow"></span>
+                                <span class="led blue blink-fast"></span>
+                                <span class="led blue blink-random"></span>
+                            </div>
+                            <div class="port-grid" id="enterprise-switch-ports"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Network Topology -->
+        <section class="topology-section fade-in">
+            <h2><span class="mono">02.</span> NETWORK TOPOLOGY</h2>
+            <div class="topology-canvas">
+                <div class="topo-node gateway">
+                    <div class="node-icon">🌐</div>
+                    <div class="node-label mono">INTERNET</div>
+                </div>
+                <div class="topo-connector vertical"></div>
+                <div class="topo-node router" data-node="udm-pro" style="cursor:pointer;">
+                    <div class="node-icon">🔷</div>
+                    <div class="node-label mono">UDM-PRO</div>
+                    <div class="node-stats">10.0.0.1</div>
+                </div>
+                <div class="topo-connector vertical"></div>
+                <div class="topo-node switch" data-node="usw-pro" style="cursor:pointer;">
+                    <div class="node-icon">🔶</div>
+                    <div class="node-label mono">USW-PRO-24-POE</div>
+                </div>
+                <div class="topo-connector vertical"></div>
+                <div class="topo-node switch" data-node="udm-enterprise-poe" style="cursor:pointer;">
+                    <div class="node-icon">🔶</div>
+                    <div class="node-label mono">UMD-Enterprise-Campus-24-PoE</div>
+                </div>
+                <div class="topo-split">
+                    <div class="topo-branch">
+                        <div class="topo-connector vertical short"></div>
+                        <div class="topo-node endpoint" data-node="u6-pro" style="cursor:pointer;">
+                            <div class="node-icon">📡</div>
+                            <div class="node-label mono">U6-PRO</div>
+                            <div class="node-stats">WiFi 6</div>
+                        </div>
+                    </div>
+                    <div class="topo-branch">
+                        <div class="topo-connector vertical short"></div>
+                        <div class="topo-node endpoint" data-node="servers" style="cursor:pointer;">
+                            <div class="node-icon">🖥️</div>
+                            <div class="node-label mono">SERVERS</div>
+                            <div class="node-stats">VLAN 10</div>
+                        </div>
+                    </div>
+                    <div class="topo-branch">
+                        <div class="topo-connector vertical short"></div>
+                        <div class="topo-node endpoint" data-node="iot" style="cursor:pointer;">
+                            <div class="node-icon">💡</div>
+                            <div class="node-label mono">IOT</div>
+                            <div class="node-stats">VLAN 20</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Running -->
+        <section class="services-section fade-in">
+            <h2><span class="mono">03.</span> SERVICES</h2>
+            <div class="services-grid">
+                <div class="service-card" data-service="plex" style="cursor:pointer;">
+                    <div class="service-status online"></div>
+                    <div class="service-name mono">Plex Media Server</div>
+                </div>
+                <div class="service-card" data-service="pihole" style="cursor:pointer;">
+                    <div class="service-status online"></div>
+                    <div class="service-name mono">Pi-hole DNS</div>
+                </div>
+                <div class="service-card" data-service="homeassistant" style="cursor:pointer;">
+                    <div class="service-status online"></div>
+                    <div class="service-name mono">Home Assistant</div>
+                </div>
+                <div class="service-card" data-service="grafana" style="cursor:pointer;">
+                    <div class="service-status online"></div>
+                    <div class="service-name mono">Grafana</div>
+                </div>
+                <div class="service-card" data-service="portainer" style="cursor:pointer;">
+                    <div class="service-status online"></div>
+                    <div class="service-name mono">Portainer</div>
+                </div>
+                <div class="service-card" data-service="nginx" style="cursor:pointer;">
+                    <div class="service-status online"></div>
+                    <div class="service-name mono">Nginx Proxy</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <span class="bracket">[</span><span class="accent-orange">ZAK</span><span
+                    class="accent-purple">PT</span><span class="bracket">]</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">GITHUB</a>
+                <a href="#">REDDIT</a>
+            </div>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="enhanced.js"></script>
+    <script src="adhd-mode.js"></script>
+</body>
+
+</html>
+```

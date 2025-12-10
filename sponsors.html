@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsors & Support | ZakPT</title>
+    <meta name="description"
+        content="Support the channel and check out products I recommend. Affiliate links and sponsorship information.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="cyber-header">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none;">
+                <span class="bracket">[</span><span class="accent-orange">ZAK</span><span
+                    class="accent-purple">PT</span><span class="bracket">]</span>
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="content.html">CONTENT</a></li>
+                <li><a href="homelab.html">HOMELAB</a></li>
+                <li><a href="cybersecurity.html">CYBER</a></li>
+                <li><a href="photography.html">PHOTOGRAPHY</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="gear.html">GEAR</a></li>
+                <li><a href="sponsors.html" class="active">SPONSORS</a></li>
+                <li><a href="links.html">LINKS</a></li>
+            </ul>
+            <button id="search-icon-btn" class="search-icon-btn" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+        </nav>
+        <div class="coffee-status">
+            <i class="fas fa-heart"></i> <span class="mono">SUPPORT: ON</span>
+        </div>
+        <button id="adhd-toggle-btn" class="adhd-toggle-btn" aria-label="Toggle ADHD Focus Mode"
+            title="ADHD Focus Mode">
+            <i class="fas fa-brain"></i>
+            <span class="mono">FOCUS</span>
+        </button>
+    </header>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search pages, projects, content..."
+                class="search-input mono" autocomplete="off">
+            <button id="search-close-btn" class="search-close-btn" aria-label="Close search">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section sponsors-hero">
+            <div class="hero-content">
+                <h1 class="glitch" data-text="SUPPORT">SUPPORT</h1>
+                <p class="subtitle mono">Help keep the content coming</p>
+            </div>
+        </section>
+
+        <!-- Support Options -->
+        <section class="support-section fade-in">
+            <div class="section-title">
+                <h2><span class="mono">01.</span> SUPPORT THE CHANNEL</h2>
+                <div class="line"></div>
+            </div>
+            <div class="support-grid">
+                <a href="https://ko-fi.com/yourhandle" class="support-card" target="_blank">
+                    <div class="support-icon">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <h3>Buy Me a Coffee</h3>
+                    <p>Support me with a one-time donation on Ko-fi</p>
+                    <span class="support-badge">One-Time</span>
+                </a>
+                <a href="https://patreon.com/yourhandle" class="support-card" target="_blank">
+                    <div class="support-icon">
+                        <i class="fab fa-patreon"></i>
+                    </div>
+                    <h3>Patreon</h3>
+                    <p>Get exclusive perks and early access to content</p>
+                    <span class="support-badge">Monthly</span>
+                </a>
+                <a href="https://github.com/sponsors/yourhandle" class="support-card" target="_blank">
+                    <div class="support-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>GitHub Sponsors</h3>
+                    <p>Support open-source projects and get sponsor badges</p>
+                    <span class="support-badge">Monthly</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Current Sponsors -->
+        <section class="sponsors-section fade-in">
+            <div class="section-title">
+                <h2><span class="mono">02.</span> CURRENT SPONSORS</h2>
+                <div class="line"></div>
+            </div>
+            <div class="sponsors-grid">
+                <div class="sponsor-card tier-platinum">
+                    <div class="sponsor-tier">PLATINUM</div>
+                    <div class="sponsor-logo-placeholder">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Your Company Here</h3>
+                    <p class="mono">Interested in sponsoring?</p>
+                    <a href="mailto:your@email.com" class="sponsor-link">Get in Touch →</a>
+                </div>
+                <div class="sponsor-card tier-gold">
+                    <div class="sponsor-tier">GOLD</div>
+                    <div class="sponsor-logo-placeholder">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Become a Sponsor</h3>
+                    <p class="mono">Support the channel</p>
+                </div>
+                <div class="sponsor-card tier-silver">
+                    <div class="sponsor-tier">SILVER</div>
+                    <div class="sponsor-logo-placeholder">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Sponsor Slot Available</h3>
+                    <p class="mono">Your brand here</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Affiliate Products -->
+        <section class="affiliate-section fade-in">
+            <div class="section-title">
+                <h2><span class="mono">03.</span> RECOMMENDED PRODUCTS</h2>
+                <div class="line"></div>
+            </div>
+            <div class="affiliate-grid">
+                <div class="affiliate-card">
+                    <div class="affiliate-image">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="affiliate-content">
+                        <span class="affiliate-category mono">SERVERS</span>
+                        <h3>Dell PowerEdge Servers</h3>
+                        <p>Enterprise-grade servers perfect for homelabs</p>
+                        <div class="affiliate-price">
+                            <span class="price mono">From $500</span>
+                            <a href="#" class="affiliate-btn">View on eBay →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="affiliate-card">
+                    <div class="affiliate-image">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="affiliate-content">
+                        <span class="affiliate-category mono">NETWORKING</span>
+                        <h3>UniFi Dream Machine Pro</h3>
+                        <p>All-in-one network solution with advanced features</p>
+                        <div class="affiliate-price">
+                            <span class="price mono">$379</span>
+                            <a href="#" class="affiliate-btn">View on Amazon →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="affiliate-card">
+                    <div class="affiliate-image">
+                        <i class="fas fa-hdd"></i>
+                    </div>
+                    <div class="affiliate-content">
+                        <span class="affiliate-category mono">STORAGE</span>
+                        <h3>WD Red Pro NAS Drives</h3>
+                        <p>Reliable drives designed for 24/7 NAS operation</p>
+                        <div class="affiliate-price">
+                            <span class="price mono">$299</span>
+                            <a href="#" class="affiliate-btn">View on Amazon →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Disclosure -->
+        <section class="disclosure-section fade-in">
+            <div class="disclosure-container">
+                <i class="fas fa-info-circle"></i>
+                <div class="disclosure-content">
+                    <h3>Affiliate Disclosure</h3>
+                    <p>Some links on this page are affiliate links. This means I may earn a small commission if you
+                        purchase through these links, at no additional cost to you. I only recommend products I
+                        personally use or have thoroughly researched. Your support through these links helps me create
+                        more content and maintain this website. Thank you!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p class="mono">&copy; 2024 ZakPT. Built with <span class="accent-text">passion</span> and <span
+                class="accent-text">caffeine</span>.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="adhd-mode.js"></script>
+    <script src="enhanced.js"></script>
+</body>
+
+</html>

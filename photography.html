@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZakPT | Photography</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="scanline"></div>
+    <div class="vignette"></div>
+
+    <header class="cyber-header">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none;">
+                <span class="bracket">[</span><span class="accent-orange">ZAK</span><span
+                    class="accent-purple">PT</span><span class="bracket">]</span>
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="content.html">CONTENT</a></li>
+                <li><a href="homelab.html">HOMELAB</a></li>
+                <li><a href="cybersecurity.html">CYBER</a></li>
+                <li><a href="photography.html" class="active">PHOTOGRAPHY</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="gear.html">GEAR</a></li>
+                <li><a href="sponsors.html">SPONSORS</a></li>
+                <li><a href="links.html">LINKS</a></li>
+            </ul>
+            <button id="search-icon-btn" class="search-icon-btn" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+        </nav>
+        <div class="coffee-status">
+            <i class="fas fa-camera"></i> <span class="mono">ISO: 800</span>
+        </div>
+        <button id="adhd-toggle-btn" class="adhd-toggle-btn" aria-label="Toggle ADHD Focus Mode"
+            title="ADHD Focus Mode">
+            <i class="fas fa-brain"></i>
+            <span class="mono">FOCUS</span>
+        </button>
+    </header>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search pages, projects, content..."
+                class="search-input mono" autocomplete="off">
+            <button id="search-close-btn" class="search-close-btn" aria-label="Close search">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
+    <main>
+        <section class="page-header">
+            <h1 class="glitch-text">THE <span class="outline-text">LENS</span></h1>
+            <p class="mono">Capturing the world in high definition.</p>
+        </section>
+
+        <section class="gallery-container">
+            <div class="masonry-grid" id="photo-gallery">
+                <!-- Photos will be loaded dynamically by JavaScript -->
+                <!-- Fallback: If JS disabled, show first 6 -->
+                <noscript>
+                    <div class="gallery-item"><img src="photos/photo-1.jpg" alt="Photo 1">
+                        <div class="overlay"><span class="mono">IMG_01</span></div>
+                    </div>
+                    <div class="gallery-item"><img src="photos/photo-2.jpg" alt="Photo 2">
+                        <div class="overlay"><span class="mono">IMG_02</span></div>
+                    </div>
+                    <div class="gallery-item"><img src="photos/photo-3.jpg" alt="Photo 3">
+                        <div class="overlay"><span class="mono">IMG_03</span></div>
+                    </div>
+                    <div class="gallery-item"><img src="photos/photo-4.jpg" alt="Photo 4">
+                        <div class="overlay"><span class="mono">IMG_04</span></div>
+                    </div>
+                    <div class="gallery-item"><img src="photos/photo-5.jpg" alt="Photo 5">
+                        <div class="overlay"><span class="mono">IMG_05</span></div>
+                    </div>
+                    <div class="gallery-item"><img src="photos/photo-6.jpg" alt="Photo 6">
+                        <div class="overlay"><span class="mono">IMG_06</span></div>
+                    </div>
+                </noscript>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <span class="bracket">[</span><span class="accent-orange">ZAK</span><span
+                    class="accent-purple">PT</span><span class="bracket">]</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">INSTAGRAM</a>
+                <a href="#">UNSPLASH</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="photography.js"></script>
+    <script src="adhd-mode.js"></script>
+    <!-- Scripts -->
+    <script src="data.js"></script>
+</body>
+
+</html>

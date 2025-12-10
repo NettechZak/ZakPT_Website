@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Useful Links | ZakPT</title>
+    <meta name="description"
+        content="Curated collection of useful resources, tools, and documentation for homelab enthusiasts and tech creators.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="cyber-header">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none;">
+                <span class="bracket">[</span><span class="accent-orange">ZAK</span><span
+                    class="accent-purple">PT</span><span class="bracket">]</span>
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="content.html">CONTENT</a></li>
+                <li><a href="homelab.html">HOMELAB</a></li>
+                <li><a href="cybersecurity.html">CYBER</a></li>
+                <li><a href="photography.html">PHOTOGRAPHY</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="gear.html">GEAR</a></li>
+                <li><a href="sponsors.html">SPONSORS</a></li>
+                <li><a href="links.html" class="active">LINKS</a></li>
+            </ul>
+            <button id="search-icon-btn" class="search-icon-btn" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+        </nav>
+        <div class="coffee-status">
+            <i class="fas fa-link"></i> <span class="mono">LINKS: 50+</span>
+        </div>
+        <button id="adhd-toggle-btn" class="adhd-toggle-btn" aria-label="Toggle ADHD Focus Mode"
+            title="ADHD Focus Mode">
+            <i class="fas fa-brain"></i>
+            <span class="mono">FOCUS</span>
+        </button>
+    </header>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search pages, projects, content..."
+                class="search-input mono" autocomplete="off">
+            <button id="search-close-btn" class="search-close-btn" aria-label="Close search">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section links-hero">
+            <div class="hero-content">
+                <h1 class="glitch" data-text="RESOURCES">RESOURCES</h1>
+                <p class="subtitle mono">Curated tools & documentation</p>
+            </div>
+        </section>
+
+        <!-- Essential Tools -->
+        <section class="links-section fade-in">
+            <div class="section-title">
+                <h2><span class="mono">01.</span> ESSENTIAL TOOLS</h2>
+                <div class="line"></div>
+            </div>
+            <div class="links-grid">
+                <a href="https://www.proxmox.com/" class="link-card" target="_blank">
+                    <div class="link-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>Proxmox VE</h3>
+                    <p class="mono">proxmox.com</p>
+                    <p>Open-source virtualization platform</p>
+                </a>
+                <a href="https://www.docker.com/" class="link-card" target="_blank">
+                    <div class="link-icon">
+                        <i class="fab fa-docker"></i>
+                    </div>
+                    <h3>Docker</h3>
+                    <p class="mono">docker.com</p>
+                    <p>Container platform for applications</p>
+                </a>
+                <a href="https://www.pfsense.org/" class="link-card" target="_blank">
+                    <div class="link-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>pfSense</h3>
+                    <p class="mono">pfsense.org</p>
+                    <p>Open-source firewall and router</p>
+                </a>
+                <a href="https://www.home-assistant.io/" class="link-card" target="_blank">
+                    <div class="link-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Home Assistant</h3>
+                    <p class="mono">home-assistant.io</p>
+                    <p>Open-source home automation</p>
+                </a>
+                <a href="https://www.truenas.com/" class="link-card" target="_blank">
+                    <div class="link-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>TrueNAS</h3>
+                    <p class="mono">truenas.com</p>
+                    <p>Network-attached storage solution</p>
+                </a>
+                <a href="https://grafana.com/" class="link-card" target="_blank">
+                    <div class="link-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Grafana</h3>
+                    <p class="mono">grafana.com</p>
+                    <p>Monitoring and observability platform</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Documentation -->
+        <section class="links-section fade-in">
+            <div class="section-title">
+                <h2><span class="mono">02.</span> DOCUMENTATION & GUIDES</h2>
+                <div class="line"></div>
+            </div>
+            <div class="links-grid">
+                <a href="https://docs.docker.com/" class="link-card" target="_blank">
+                    <div class="link-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Docker Docs</h3>
+                    <p class="mono">docs.docker.com</p>
+                    <p>Official Docker documentation</p>
+                </a>
+                <a href="https://pve.proxmox.com/wiki/" class="link-card" target="_blank">
+                    <div class="link-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Proxmox Wiki</h3>
+                    <p class="mono">pve.proxmox.com/wiki</p>
+                    <p>Comprehensive Proxmox guides</p>
+                </a>
+                <a href="https://docs.ansible.com/" class="link-card" target="_blank">
+                    <div class="link-icon">
+                        <i class="fas fa-file-code"></i>
+                    </div>
+                    <h3>Ansible Docs</h3>
+                    <p class="mono">docs.ansible.com</p>
+                    <p>Automation and configuration management</p>
+                </a>
+                <a href="https://kubernetes.io/docs/" class="link-card" target="_blank">
+                    <div class="link-icon">
+                        <i class="fas fa-dharmachakra"></i>
+                    </div>
+                    <h3>Kubernetes Docs</h3>
+                    <p class="mono">kubernetes.io/docs</p>
+                    <p>Container orchestration documentation</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Communities -->
+        <section class="links-section fade-in">
+            <div class="section-title">
+                <h2><span class="mono">03.</span> COMMUNITIES</h2>
+                <div class="line"></div>
+            </div>
+            <div class="links-grid">
+                <a href="https://reddit.com/r/homelab" class="link-card" target="_blank">
+                    <div class="link-icon">
+                        <i class="fab fa-reddit"></i>
+                    </div>
+                    <h3>r/homelab</h3>
+                    <p class="mono">reddit.com/r/homelab</p>
+                    <p>Homelab community and discussions</p>
+                </a>
+                <a href="https://reddit.com/r/selfhosted" class="link-card" target="_blank">
+                    <div class="link-icon">
+                        <i class="fab fa-reddit"></i>
+                    </div>
+                    <h3>r/selfhosted</h3>
+                    <p class="mono">reddit.com/r/selfhosted</p>
+                    <p>Self-hosting community</p>
+                </a>
+                <a href="https://discord.gg/homelab" class="link-card" target="_blank">
+                    <div class="link-icon">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <h3>Homelab Discord</h3>
+                    <p class="mono">discord.gg/homelab</p>
+                    <p>Real-time chat and support</p>
+                </a>
+                <a href="https://servethehome.com/forums/" class="link-card" target="_blank">
+                    <div class="link-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>ServeTheHome Forums</h3>
+                    <p class="mono">servethehome.com</p>
+                    <p>Server and hardware discussions</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Learning Resources -->
+        <section class="links-section fade-in">
+            <div class="section-title">
+                <h2><span class="mono">04.</span> LEARNING RESOURCES</h2>
+                <div class="line"></div>
+            </div>
+            <div class="links-grid">
+                <a href="https://www.youtube.com/@TechnoTim" class="link-card" target="_blank">
+                    <div class="link-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <h3>TechnoTim</h3>
+                    <p class="mono">youtube.com/@TechnoTim</p>
+                    <p>Homelab tutorials and guides</p>
+                </a>
+                <a href="https://www.youtube.com/@NetworkChuck" class="link-card" target="_blank">
+                    <div class="link-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <h3>NetworkChuck</h3>
+                    <p class="mono">youtube.com/@NetworkChuck</p>
+                    <p>Networking and cybersecurity</p>
+                </a>
+                <a href="https://www.youtube.com/@CraftComputing" class="link-card" target="_blank">
+                    <div class="link-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <h3>Craft Computing</h3>
+                    <p class="mono">youtube.com/@CraftComputing</p>
+                    <p>Server builds and reviews</p>
+                </a>
+                <a href="https://academy.networkchuck.com/" class="link-card" target="_blank">
+                    <div class="link-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Network Chuck Academy</h3>
+                    <p class="mono">academy.networkchuck.com</p>
+                    <p>Structured IT courses</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Useful Websites -->
+        <section class="links-section fade-in">
+            <div class="section-title">
+                <h2><span class="mono">05.</span> USEFUL WEBSITES</h2>
+                <div class="line"></div>
+            </div>
+            <div class="links-grid">
+                <a href="https://www.servethehome.com/" class="link-card" target="_blank">
+                    <div class="link-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3>ServeTheHome</h3>
+                    <p class="mono">servethehome.com</p>
+                    <p>Server and hardware reviews</p>
+                </a>
+                <a href="https://labgopher.com/" class="link-card" target="_blank">
+                    <div class="link-icon">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3>LabGopher</h3>
+                    <p class="mono">labgopher.com</p>
+                    <p>Find deals on server hardware</p>
+                </a>
+                <a href="https://pcpartpicker.com/" class="link-card" target="_blank">
+                    <div class="link-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>PCPartPicker</h3>
+                    <p class="mono">pcpartpicker.com</p>
+                    <p>Build planning and price comparison</p>
+                </a>
+                <a href="https://www.speedtest.net/" class="link-card" target="_blank">
+                    <div class="link-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Speedtest</h3>
+                    <p class="mono">speedtest.net</p>
+                    <p>Test your internet speed</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p class="mono">&copy; 2024 ZakPT. Built with <span class="accent-text">passion</span> and <span
+                class="accent-text">caffeine</span>.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="adhd-mode.js"></script>
+    <script src="enhanced.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gear & Setup | ZakPT</title>
+    <meta name="description" content="The hardware and software I use for content creation, homelab, and daily work.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="cyber-header">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none;">
+                <span class="bracket">[</span><span class="accent-orange">ZAK</span><span
+                    class="accent-purple">PT</span><span class="bracket">]</span>
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="content.html">CONTENT</a></li>
+                <li><a href="homelab.html">HOMELAB</a></li>
+                <li><a href="cybersecurity.html">CYBER</a></li>
+                <li><a href="photography.html">PHOTOGRAPHY</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="gear.html" class="active">GEAR</a></li>
+                <li><a href="sponsors.html">SPONSORS</a></li>
+                <li><a href="links.html">LINKS</a></li>
+            </ul>
+            <button id="search-icon-btn" class="search-icon-btn" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+        </nav>
+        <div class="coffee-status">
+            <i class="fas fa-tools"></i> <span class="mono">BUILD: READY</span>
+        </div>
+        <button id="adhd-toggle-btn" class="adhd-toggle-btn" aria-label="Toggle ADHD Focus Mode"
+            title="ADHD Focus Mode">
+            <i class="fas fa-brain"></i>
+            <span class="mono">FOCUS</span>
+        </button>
+    </header>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search pages, projects, content..."
+                class="search-input mono" autocomplete="off">
+            <button id="search-close-btn" class="search-close-btn" aria-label="Close search">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section gear-hero">
+            <div class="hero-content">
+                <h1 class="glitch" data-text="MY GEAR">MY GEAR</h1>
+                <p class="subtitle mono">The tools that power my content and homelab</p>
+            </div>
+        </section>
+
+        <!-- Recording Equipment -->
+        <section class="gear-section fade-in">
+            <div class="section-title">
+                <h2><span class="mono">01.</span> RECORDING EQUIPMENT</h2>
+                <div class="line"></div>
+            </div>
+            <div class="gear-grid">
+                <div class="gear-card">
+                    <div class="gear-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Camera</h3>
+                    <p class="gear-name mono">Sony A7 III</p>
+                    <p class="gear-desc">Full-frame mirrorless camera for high-quality video recording</p>
+                    <a href="#" class="gear-link">View on Amazon →</a>
+                </div>
+                <div class="gear-card">
+                    <div class="gear-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h3>Microphone</h3>
+                    <p class="gear-name mono">Shure SM7B</p>
+                    <p class="gear-desc">Professional broadcast microphone with CloudLifter preamp</p>
+                    <a href="#" class="gear-link">View on Amazon →</a>
+                </div>
+                <div class="gear-card">
+                    <div class="gear-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Lighting</h3>
+                    <p class="gear-name mono">Elgato Key Light Air</p>
+                    <p class="gear-desc">Adjustable LED panel lights for consistent lighting</p>
+                    <a href="#" class="gear-link">View on Amazon →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PC Specs -->
+        <section class="gear-section fade-in">
+            <div class="section-title">
+                <h2><span class="mono">02.</span> MAIN WORKSTATION</h2>
+                <div class="line"></div>
+            </div>
+            <div class="specs-container">
+                <div class="spec-item">
+                    <span class="spec-label mono">CPU</span>
+                    <span class="spec-value">AMD Ryzen 9 5950X (16-core, 32-thread)</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label mono">GPU</span>
+                    <span class="spec-value">NVIDIA RTX 4080 16GB</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label mono">RAM</span>
+                    <span class="spec-value">64GB DDR4 3600MHz (G.Skill Trident Z)</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label mono">STORAGE</span>
+                    <span class="spec-value">2TB Samsung 980 Pro NVMe + 4TB WD Black SN850X</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label mono">MOTHERBOARD</span>
+                    <span class="spec-value">ASUS ROG Crosshair VIII Hero</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label mono">COOLING</span>
+                    <span class="spec-value">Custom Watercooling Loop (EKWB)</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label mono">PSU</span>
+                    <span class="spec-value">Corsair HX1000i 1000W 80+ Platinum</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label mono">CASE</span>
+                    <span class="spec-value">Lian Li O11 Dynamic XL</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Homelab Hardware -->
+        <section class="gear-section fade-in">
+            <div class="section-title">
+                <h2><span class="mono">03.</span> HOMELAB HARDWARE</h2>
+                <div class="line"></div>
+            </div>
+            <div class="gear-grid">
+                <div class="gear-card">
+                    <div class="gear-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Main Server</h3>
+                    <p class="gear-name mono">Dell PowerEdge R730</p>
+                    <p class="gear-desc">Dual Xeon E5-2680 v4, 256GB RAM, 12x 4TB HDDs</p>
+                </div>
+                <div class="gear-card">
+                    <div class="gear-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Network Switch</h3>
+                    <p class="gear-name mono">UniFi Switch Pro 24</p>
+                    <p class="gear-desc">24-port PoE+ managed switch with 10G SFP+ uplinks</p>
+                </div>
+                <div class="gear-card">
+                    <div class="gear-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>Router/Firewall</h3>
+                    <p class="gear-name mono">Protectli Vault</p>
+                    <p class="gear-desc">6-port fanless firewall running pfSense</p>
+                </div>
+                <div class="gear-card">
+                    <div class="gear-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>NAS</h3>
+                    <p class="gear-name mono">TrueNAS Custom Build</p>
+                    <p class="gear-desc">8x 12TB WD Red Pro in RAIDZ2, 128GB ECC RAM</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Peripherals -->
+        <section class="gear-section fade-in">
+            <div class="section-title">
+                <h2><span class="mono">04.</span> DESK SETUP</h2>
+                <div class="line"></div>
+            </div>
+            <div class="gear-grid">
+                <div class="gear-card">
+                    <div class="gear-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>Monitor</h3>
+                    <p class="gear-name mono">LG 38WN95C-W</p>
+                    <p class="gear-desc">38" UltraWide 3840x1600 IPS, 144Hz</p>
+                </div>
+                <div class="gear-card">
+                    <div class="gear-icon">
+                        <i class="fas fa-keyboard"></i>
+                    </div>
+                    <h3>Keyboard</h3>
+                    <p class="gear-name mono">Custom Split Ergo</p>
+                    <p class="gear-desc">Hand-wired, QMK firmware, Gateron Black Ink switches</p>
+                </div>
+                <div class="gear-card">
+                    <div class="gear-icon">
+                        <i class="fas fa-mouse"></i>
+                    </div>
+                    <h3>Mouse</h3>
+                    <p class="gear-name mono">Logitech MX Master 3S</p>
+                    <p class="gear-desc">Wireless productivity mouse with infinite scroll</p>
+                </div>
+                <div class="gear-card">
+                    <div class="gear-icon">
+                        <i class="fas fa-headphones"></i>
+                    </div>
+                    <h3>Headphones</h3>
+                    <p class="gear-name mono">Sony WH-1000XM5</p>
+                    <p class="gear-desc">Wireless noise-cancelling headphones</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Software -->
+        <section class="gear-section fade-in">
+            <div class="section-title">
+                <h2><span class="mono">05.</span> SOFTWARE STACK</h2>
+                <div class="line"></div>
+            </div>
+            <div class="software-grid">
+                <div class="software-category">
+                    <h3><i class="fas fa-video"></i> Video Editing</h3>
+                    <ul class="mono">
+                        <li>DaVinci Resolve Studio</li>
+                        <li>Adobe Premiere Pro</li>
+                        <li>OBS Studio</li>
+                    </ul>
+                </div>
+                <div class="software-category">
+                    <h3><i class="fas fa-code"></i> Development</h3>
+                    <ul class="mono">
+                        <li>VS Code</li>
+                        <li>Docker Desktop</li>
+                        <li>Git / GitHub</li>
+                    </ul>
+                </div>
+                <div class="software-category">
+                    <h3><i class="fas fa-server"></i> Homelab</h3>
+                    <ul class="mono">
+                        <li>Proxmox VE</li>
+                        <li>TrueNAS Scale</li>
+                        <li>pfSense</li>
+                        <li>Home Assistant</li>
+                    </ul>
+                </div>
+                <div class="software-category">
+                    <h3><i class="fas fa-image"></i> Graphics</h3>
+                    <ul class="mono">
+                        <li>Adobe Photoshop</li>
+                        <li>Lightroom Classic</li>
+                        <li>Figma</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Affiliate Disclaimer -->
+        <section class="disclaimer-section fade-in">
+            <div class="disclaimer-box">
+                <i class="fas fa-info-circle"></i>
+                <p><strong>Affiliate Disclosure:</strong> Some links on this page are affiliate links. If you purchase
+                    through these links, I may earn a small commission at no extra cost to you. This helps support the
+                    channel and allows me to continue creating content. Thank you for your support!</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p class="mono">&copy; 2024 ZakPT. Built with <span class="accent-text">passion</span> and <span
+                class="accent-text">caffeine</span>.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="adhd-mode.js"></script>
+    <script src="enhanced.js"></script>
+</body>
+
+</html>

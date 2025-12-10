@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZakPT | Content</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="scanline"></div>
+    <div class="vignette"></div>
+
+    <header class="cyber-header">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none;">
+                <span class="bracket">[</span><span class="accent-orange">ZAK</span><span
+                    class="accent-purple">PT</span><span class="bracket">]</span>
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="content.html" class="active">CONTENT</a></li>
+                <li><a href="homelab.html">HOMELAB</a></li>
+                <li><a href="cybersecurity.html">CYBER</a></li>
+                <li><a href="photography.html">PHOTOGRAPHY</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="gear.html">GEAR</a></li>
+                <li><a href="sponsors.html">SPONSORS</a></li>
+                <li><a href="links.html">LINKS</a></li>
+            </ul>
+            <button id="search-icon-btn" class="search-icon-btn" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+        </nav>
+        <div class="coffee-status">
+            <i class="fas fa-video"></i> <span class="mono">VIDEOS: 42</span>
+        </div>
+        <button id="adhd-toggle-btn" class="adhd-toggle-btn" aria-label="Toggle ADHD Focus Mode"
+            title="ADHD Focus Mode">
+            <i class="fas fa-brain"></i>
+            <span class="mono">FOCUS</span>
+        </button>
+    </header>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search pages, projects, content..."
+                class="search-input mono" autocomplete="off">
+            <button id="search-close-btn" class="search-close-btn" aria-label="Close search">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
+    <main>
+        <section class="page-header">
+            <h1 class="glitch-text">THE <span class="outline-text">CONTENT</span></h1>
+            <p class="mono">Sharing the knowledge. Documenting the journey.</p>
+            <div class="content-stats">
+                <span class="stat-badge"><span class="mono">15K+</span> Total Views</span>
+                <span class="stat-badge"><span class="mono">42</span> Videos</span>
+                <span class="stat-badge"><span class="mono">12</span> Blog Posts</span>
+            </div>
+        </section>
+
+        <!-- Featured Content -->
+        <section class="featured-content fade-in" id="featured-content-container">
+            <div class="loading-indicator">
+                <span class="mono">LOADING FEATURED...</span>
+            </div>
+        </section>
+
+        <!-- Content Grid -->
+        <section class="content-grid-section fade-in">
+            <h2><span class="mono">RECENT</span> CONTENT</h2>
+
+            <div class="content-grid" id="recent-content-grid">
+                <!-- Content will be loaded dynamically via enhanced.js -->
+                <div class="loading-indicator">
+                    <span class="mono">LOADING CONTENT...</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter CTA -->
+        <section class="newsletter-section fade-in">
+            <div class="newsletter-card">
+                <h2>Stay Updated</h2>
+                <p>Get notified when I drop new content about homelabs, networking, and tech.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="your@email.com" class="email-input mono">
+                    <button class="subscribe-btn">SUBSCRIBE</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <span class="bracket">[</span><span class="accent-orange">ZAK</span><span
+                    class="accent-purple">PT</span><span class="bracket">]</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">YOUTUBE</a>
+                <a href="#">TWITTER</a>
+            </div>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="enhanced.js"></script>
+    <script src="adhd-mode.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZakPT | Cybersecurity</title>
+    <meta name="description" content="Cybersecurity projects, hacking labs, and documentation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        .cyber-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cyber-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .cyber-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cyber-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-green);
+            box-shadow: 0 10px 30px rgba(0, 255, 102, 0.1);
+        }
+
+        .cyber-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-green);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
+        }
+
+        .cyber-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .cyber-icon {
+            font-size: 3rem;
+            color: var(--accent-green);
+            margin-bottom: 1.5rem;
+        }
+
+        .cyber-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-family: var(--font-mono);
+        }
+
+        .cyber-card p {
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        /* Red Team / Blue Team Accents */
+        .red-team:hover {
+            border-color: #ff5f56;
+            box-shadow: 0 10px 30px rgba(255, 95, 86, 0.1);
+        }
+
+        .red-team .cyber-icon {
+            color: #ff5f56;
+        }
+
+        .red-team::before {
+            background: #ff5f56;
+        }
+
+        .blue-team:hover {
+            border-color: #00D1FF;
+            box-shadow: 0 10px 30px rgba(0, 209, 255, 0.1);
+        }
+
+        .blue-team .cyber-icon {
+            color: #00D1FF;
+        }
+
+        .blue-team::before {
+            background: #00D1FF;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scanline"></div>
+    <div class="vignette"></div>
+
+    <header class="cyber-header">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none;">
+                <span class="bracket">[</span><span class="accent-orange">ZAK</span><span
+                    class="accent-purple">PT</span><span class="bracket">]</span>
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="content.html">CONTENT</a></li>
+                <li><a href="homelab.html">HOMELAB</a></li>
+                <li><a href="cybersecurity.html" class="active">CYBER</a></li>
+                <li><a href="photography.html">PHOTOGRAPHY</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="gear.html">GEAR</a></li>
+                <li><a href="sponsors.html">SPONSORS</a></li>
+                <li><a href="links.html">LINKS</a></li>
+            </ul>
+            <button id="search-icon-btn" class="search-icon-btn" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+        </nav>
+        <div class="coffee-status">
+            <i class="fas fa-shield-alt"></i> <span class="mono">SECURE</span>
+        </div>
+        <button id="adhd-toggle-btn" class="adhd-toggle-btn" aria-label="Toggle ADHD Focus Mode"
+            title="ADHD Focus Mode">
+            <i class="fas fa-brain"></i>
+            <span class="mono">FOCUS</span>
+        </button>
+    </header>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search pages, projects, content..."
+                class="search-input mono" autocomplete="off">
+            <button id="search-close-btn" class="search-close-btn" aria-label="Close search">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
+    <main>
+        <section class="cyber-hero">
+            <div class="hero-content">
+                <h1 class="glitch-text">CYBER<span class="outline-text">SECURITY</span></h1>
+                <p class="mono">Red Team • Blue Team • CTF • Research</p>
+            </div>
+        </section>
+
+        <!-- Stats Dashboard -->
+        <section class="fade-in" style="padding: 2rem;">
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto;">
+                <div
+                    style="background: var(--surface-color); border: 1px solid var(--accent-green); border-radius: 8px; padding: 1.5rem; text-align: center;">
+                    <div class="mono" style="font-size: 2rem; color: var(--accent-green);">15+</div>
+                    <div style="color: var(--text-dim); margin-top: 0.5rem;">CTF Challenges</div>
+                </div>
+                <div
+                    style="background: var(--surface-color); border: 1px solid #ff5f56; border-radius: 8px; padding: 1.5rem; text-align: center;">
+                    <div class="mono" style="font-size: 2rem; color: #ff5f56;">8</div>
+                    <div style="color: var(--text-dim); margin-top: 0.5rem;">Active Projects</div>
+                </div>
+                <div
+                    style="background: var(--surface-color); border: 1px solid #00D1FF; border-radius: 8px; padding: 1.5rem; text-align: center;">
+                    <div class="mono" style="font-size: 2rem; color: #00D1FF;">12</div>
+                    <div style="color: var(--text-dim); margin-top: 0.5rem;">Tools Mastered</div>
+                </div>
+                <div
+                    style="background: var(--surface-color); border: 1px solid var(--accent-purple); border-radius: 8px; padding: 1.5rem; text-align: center;">
+                    <div class="mono" style="font-size: 2rem; color: var(--accent-purple);">20+</div>
+                    <div style="color: var(--text-dim); margin-top: 0.5rem;">Hours/Week</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Cards -->
+        <section class="fade-in">
+            <div class="cyber-grid">
+                <a href="cyber-projects.html" class="cyber-card red-team">
+                    <div class="cyber-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h2>PROJECTS / HACKING</h2>
+                    <p>Offensive security labs, Rubber Ducky scripts, WiFi pentesting, and CTF writeups.</p>
+                </a>
+
+                <a href="cyber-docs.html" class="cyber-card blue-team">
+                    <div class="cyber-icon">
+                        <i class="fas fa-book-dead"></i>
+                    </div>
+                    <h2>DOCUMENTATION</h2>
+                    <p>Cheatsheets, hardening guides, network security protocols, and reference materials.</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Focus Areas -->
+        <section class="fade-in" style="padding: 4rem 2rem;">
+            <div class="section-title" style="max-width: 1200px; margin: 0 auto;">
+                <h2><span class="mono">01.</span> FOCUS AREAS</h2>
+                <div class="line"></div>
+            </div>
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 2rem auto 0;">
+                <div
+                    style="background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 2rem;">
+                    <i class="fas fa-user-secret"
+                        style="font-size: 2rem; color: #ff5f56; margin-bottom: 1rem; display: block;"></i>
+                    <h3 class="mono" style="margin-bottom: 1rem;">Penetration Testing</h3>
+                    <p style="color: var(--text-dim); line-height: 1.6;">Web application security, network penetration
+                        testing, vulnerability assessment, and exploit development.</p>
+                    <div style="margin-top: 1rem;">
+                        <span
+                            style="display: inline-block; background: rgba(255, 95, 86, 0.1); color: #ff5f56; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8rem; margin-right: 0.5rem;">Metasploit</span>
+                        <span
+                            style="display: inline-block; background: rgba(255, 95, 86, 0.1); color: #ff5f56; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8rem;">Burp
+                            Suite</span>
+                    </div>
+                </div>
+
+                <div
+                    style="background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 2rem;">
+                    <i class="fas fa-network-wired"
+                        style="font-size: 2rem; color: #00D1FF; margin-bottom: 1rem; display: block;"></i>
+                    <h3 class="mono" style="margin-bottom: 1rem;">Network Security</h3>
+                    <p style="color: var(--text-dim); line-height: 1.6;">Firewall configuration, IDS/IPS setup, traffic
+                        analysis, and secure network architecture design.</p>
+                    <div style="margin-top: 1rem;">
+                        <span
+                            style="display: inline-block; background: rgba(0, 209, 255, 0.1); color: #00D1FF; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8rem; margin-right: 0.5rem;">Wireshark</span>
+                        <span
+                            style="display: inline-block; background: rgba(0, 209, 255, 0.1); color: #00D1FF; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8rem;">Snort</span>
+                    </div>
+                </div>
+
+                <div
+                    style="background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 2rem;">
+                    <i class="fas fa-terminal"
+                        style="font-size: 2rem; color: var(--accent-green); margin-bottom: 1rem; display: block;"></i>
+                    <h3 class="mono" style="margin-bottom: 1rem;">Scripting & Automation</h3>
+                    <p style="color: var(--text-dim); line-height: 1.6;">Python for security tools, Bash scripting for
+                        system automation, and custom payload development.</p>
+                    <div style="margin-top: 1rem;">
+                        <span
+                            style="display: inline-block; background: rgba(0, 255, 102, 0.1); color: var(--accent-green); padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8rem; margin-right: 0.5rem;">Python</span>
+                        <span
+                            style="display: inline-block; background: rgba(0, 255, 102, 0.1); color: var(--accent-green); padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8rem;">Bash</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools & Technologies -->
+        <section class="fade-in" style="padding: 4rem 2rem; background: rgba(0,0,0,0.3);">
+            <div class="section-title" style="max-width: 1200px; margin: 0 auto;">
+                <h2><span class="mono">02.</span> ARSENAL</h2>
+                <div class="line"></div>
+            </div>
+            <div
+                style="max-width: 1200px; margin: 2rem auto 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                <div>
+                    <h3 class="mono" style="color: var(--accent-orange); margin-bottom: 1rem; font-size: 1.1rem;">
+                        OFFENSIVE</h3>
+                    <ul class="mono" style="list-style: none; padding: 0; line-height: 2; color: var(--text-dim);">
+                        <li><i class="fas fa-chevron-right" style="color: #ff5f56; margin-right: 0.5rem;"></i> Kali
+                            Linux</li>
+                        <li><i class="fas fa-chevron-right" style="color: #ff5f56; margin-right: 0.5rem;"></i>
+                            Metasploit Framework</li>
+                        <li><i class="fas fa-chevron-right" style="color: #ff5f56; margin-right: 0.5rem;"></i> Burp
+                            Suite Pro</li>
+                        <li><i class="fas fa-chevron-right" style="color: #ff5f56; margin-right: 0.5rem;"></i> Nmap /
+                            Nessus</li>
+                        <li><i class="fas fa-chevron-right" style="color: #ff5f56; margin-right: 0.5rem;"></i>
+                            Aircrack-ng</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="mono" style="color: var(--accent-blue); margin-bottom: 1rem; font-size: 1.1rem;">
+                        DEFENSIVE</h3>
+                    <ul class="mono" style="list-style: none; padding: 0; line-height: 2; color: var(--text-dim);">
+                        <li><i class="fas fa-chevron-right" style="color: #00D1FF; margin-right: 0.5rem;"></i> Wireshark
+                            / tcpdump</li>
+                        <li><i class="fas fa-chevron-right" style="color: #00D1FF; margin-right: 0.5rem;"></i> Snort /
+                            Suricata</li>
+                        <li><i class="fas fa-chevron-right" style="color: #00D1FF; margin-right: 0.5rem;"></i> Splunk /
+                            ELK Stack</li>
+                        <li><i class="fas fa-chevron-right" style="color: #00D1FF; margin-right: 0.5rem;"></i> pfSense /
+                            OPNsense</li>
+                        <li><i class="fas fa-chevron-right" style="color: #00D1FF; margin-right: 0.5rem;"></i> Fail2Ban
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="mono" style="color: var(--accent-purple); margin-bottom: 1rem; font-size: 1.1rem;">
+                        DEVELOPMENT</h3>
+                    <ul class="mono" style="list-style: none; padding: 0; line-height: 2; color: var(--text-dim);">
+                        <li><i class="fas fa-chevron-right"
+                                style="color: var(--accent-purple); margin-right: 0.5rem;"></i> Python (Scapy, Requests)
+                        </li>
+                        <li><i class="fas fa-chevron-right"
+                                style="color: var(--accent-purple); margin-right: 0.5rem;"></i> Bash Scripting</li>
+                        <li><i class="fas fa-chevron-right"
+                                style="color: var(--accent-purple); margin-right: 0.5rem;"></i> PowerShell</li>
+                        <li><i class="fas fa-chevron-right"
+                                style="color: var(--accent-purple); margin-right: 0.5rem;"></i> Git / GitHub</li>
+                        <li><i class="fas fa-chevron-right"
+                                style="color: var(--accent-purple); margin-right: 0.5rem;"></i> Docker</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Terminal Statement -->
+        <section class="fade-in" style="text-align: center; padding: 4rem 2rem;">
+            <div class="terminal-window" style="margin: 0 auto; max-width: 800px; text-align: left;">
+                <div class="terminal-header">
+                    <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                    <span class="title">zakpt@kali:~</span>
+                </div>
+                <div class="terminal-body mono">
+                    <p><span class="accent-green">zakpt@kali</span>:<span class="accent-blue">~</span>$ cat
+                        mission_statement.txt</p>
+                    <p>Exploring the depths of information security. From breaking into (authorized) systems to securing
+                        enterprise networks.</p>
+                    <p>Always learning. Always ethical.</p>
+                    <p><span class="accent-green">zakpt@kali</span>:<span class="accent-blue">~</span>$ whoami</p>
+                    <p>Penetration tester, security researcher, and lifelong student of offensive and defensive
+                        security.</p>
+                    <p><span class="accent-green">zakpt@kali</span>:<span class="accent-blue">~</span>$ <span
+                            class="cursor">_</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTF & Platforms -->
+        <section class="fade-in" style="padding: 4rem 2rem;">
+            <div class="section-title" style="max-width: 1200px; margin: 0 auto;">
+                <h2><span class="mono">03.</span> TRAINING GROUNDS</h2>
+                <div class="line"></div>
+            </div>
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 2rem auto 0;">
+                <a href="https://www.hackthebox.com" target="_blank"
+                    style="background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; text-align: center; text-decoration: none; color: var(--text-main); transition: all 0.3s ease;">
+                    <i class="fas fa-cube"
+                        style="font-size: 2rem; color: var(--accent-green); margin-bottom: 0.5rem;"></i>
+                    <h4 class="mono">HackTheBox</h4>
+                </a>
+                <a href="https://tryhackme.com" target="_blank"
+                    style="background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; text-align: center; text-decoration: none; color: var(--text-main); transition: all 0.3s ease;">
+                    <i class="fas fa-laptop-code" style="font-size: 2rem; color: #ff5f56; margin-bottom: 0.5rem;"></i>
+                    <h4 class="mono">TryHackMe</h4>
+                </a>
+                <a href="https://www.vulnhub.com" target="_blank"
+                    style="background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; text-align: center; text-decoration: none; color: var(--text-main); transition: all 0.3s ease;">
+                    <i class="fas fa-server" style="font-size: 2rem; color: #00D1FF; margin-bottom: 0.5rem;"></i>
+                    <h4 class="mono">VulnHub</h4>
+                </a>
+                <a href="https://portswigger.net/web-security" target="_blank"
+                    style="background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; text-align: center; text-decoration: none; color: var(--text-main); transition: all 0.3s ease;">
+                    <i class="fas fa-flask"
+                        style="font-size: 2rem; color: var(--accent-purple); margin-bottom: 0.5rem;"></i>
+                    <h4 class="mono">PortSwigger</h4>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <span class="bracket">[</span><span class="accent-orange">ZAK</span><span
+                    class="accent-purple">PT</span><span class="bracket">]</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">GITHUB</a>
+                <a href="#">HACKTHEBOX</a>
+                <a href="#">TRYHACKME</a>
+            </div>
+        </div>
+        <!-- Scripts -->
+        <script src="data.js"></script>
+        <script src="adhd-mode.js"></script>
+        <script src="enhanced.js"></script>
+</body>
+
+</html>

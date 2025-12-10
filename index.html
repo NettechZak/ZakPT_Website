@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZakPT | The Digital Workshop</title>
+    <meta name="description" content="ZakPT's Digital Workshop. Homelab, Networking, Hardware, and Content Creation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="scanline"></div>
+    <div class="vignette"></div>
+
+    <header class="cyber-header">
+        <div class="logo">
+            <span class="bracket">[</span><span class="accent-orange">ZAK</span><span
+                class="accent-purple">PT</span><span class="bracket">]</span>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">HOME</a></li>
+                <li><a href="content.html">CONTENT</a></li>
+                <li><a href="homelab.html">HOMELAB</a></li>
+                <li><a href="cybersecurity.html">CYBER</a></li>
+                <li><a href="photography.html">PHOTOGRAPHY</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="gear.html">GEAR</a></li>
+                <li><a href="sponsors.html">SPONSORS</a></li>
+                <li><a href="links.html">LINKS</a></li>
+            </ul>
+            <button id="search-icon-btn" class="search-icon-btn" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+        </nav>
+        <div class="coffee-status">
+            <i class="fas fa-coffee"></i> <span class="mono">CAFFEINE: 98%</span>
+        </div>
+        <button id="adhd-toggle-btn" class="adhd-toggle-btn" aria-label="Toggle ADHD Focus Mode"
+            title="ADHD Focus Mode">
+            <i class="fas fa-brain"></i>
+            <span class="mono">FOCUS</span>
+        </button>
+    </header>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search pages, projects, content..."
+                class="search-input mono" autocomplete="off">
+            <button id="search-close-btn" class="search-close-btn" aria-label="Close search">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
+    <!-- Detail Modal -->
+    <div id="detail-modal" class="detail-modal">
+        <div class="modal-content">
+            <button class="modal-close-btn" aria-label="Close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modal-body" class="modal-body"></div>
+        </div>
+    </div>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                        <span class="title">zakpt@workshop:~</span>
+                    </div>
+                    <div class="terminal-body mono">
+                        <p>> init_sequence.sh</p>
+                        <p>> Loading modules...</p>
+                        <p>> <span class="accent-orange">Homelab</span>... [OK]</p>
+                        <p>> <span class="accent-purple">Networking</span>... [OK]</p>
+                        <p>> <span class="accent-blue">Photography</span>... [OK]</p>
+                        <p>> <span class="accent-green">Content Creation</span>... [OK]</p>
+                        <p>> <span id="typing-text"></span><span class="cursor">_</span></p>
+                    </div>
+                </div>
+                <h1 class="hero-title">BUILDING THE <span class="outline-text">FUTURE</span>,<br>ONE PACKET AT A TIME.
+                </h1>
+                <p class="hero-subtitle">21yo tech enthusiast exploring homelabs, networking, photography, and content
+                    creation.</p>
+                <div class="hero-cta">
+                    <a href="homelab.html" class="cta-btn primary">EXPLORE THE LAB</a>
+                    <a href="content.html" class="cta-btn secondary">WATCH CONTENT</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="rack" class="rack-section fade-in">
+            <div class="section-title">
+                <h2><span class="mono">01.</span> THE RACK</h2>
+                <div class="line"></div>
+            </div>
+            <div class="rack-container">
+                <div class="rack-viz">
+                    <!-- Server Units -->
+                    <div class="server-unit u-4" data-server="proxmox-01" style="cursor:pointer;">
+                        <div class="lights">
+                            <span class="light blink-fast"></span><span class="light blink-slow"></span><span
+                                class="light"></span>
+                        </div>
+                        <div class="server-name mono">PROXMOX-01</div>
+                    </div>
+                    <div class="server-unit u-2" data-server="truenas-core" style="cursor:pointer;">
+                        <div class="lights">
+                            <span class="light blink-random"></span><span class="light"></span>
+                        </div>
+                        <div class="server-name mono">TRUENAS-CORE</div>
+                    </div>
+                    <div class="server-unit u-1 switch" data-server="unifi-udm-pro" style="cursor:pointer;">
+                        <div class="port-lights">
+                            <!-- Generated by JS -->
+                        </div>
+                        <div class="server-name mono">UNIFI-UDM-PRO</div>
+                    </div>
+                    <div class="server-unit u-1 switch" data-server="udm-enterprise-poe" style="cursor:pointer;">
+                        <div class="port-lights">
+                            <!-- Generated by JS -->
+                        </div>
+                        <div class="server-name mono">UDM-ENTERPRISE-POE</div>
+                    </div>
+                </div>
+                <div class="rack-stats">
+                    <div class="stat-card">
+                        <h3>UPTIME</h3>
+                        <div class="stat-value mono accent-green">99.999%</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>STORAGE</h3>
+                        <div class="stat-value mono accent-purple">42 TB / 64 TB</div>
+                        <div class="progress-bar">
+                            <div class="fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <a href="homelab.html" class="btn-link">VIEW FULL SPECS ></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="workbench" class="workbench-section fade-in">
+            <div class="section-title">
+                <h2><span class="mono">02.</span> THE WORKBENCH</h2>
+                <div class="line"></div>
+            </div>
+            <div class="project-grid" id="workbench-grid">
+                <!-- Projects will be loaded dynamically via enhanced.js -->
+                <div class="loading-indicator">
+                    <span class="mono">LOADING WORKBENCH...</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="feed" class="feed-section fade-in">
+            <div class="section-title">
+                <h2><span class="mono">03.</span> THE FEED</h2>
+                <div class="line"></div>
+            </div>
+            <div class="feed-container" id="home-feed-container">
+                <div class="loading-indicator">
+                    <span class="mono">LOADING FEED...</span>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="content.html" class="btn-link">VIEW ALL CONTENT ></a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <span class="bracket">[</span><span class="accent-orange">ZAK</span><span
+                    class="accent-purple">PT</span><span class="bracket">]</span>
+                <p>Exploration never stops.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">YOUTUBE</a>
+                <a href="#">TWITTER</a>
+                <a href="#">GITHUB</a>
+                <a href="#">DISCORD</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="enhanced.js"></script>
+    <script src="adhd-mode.js"></script>
+</body>
+
+</html>
