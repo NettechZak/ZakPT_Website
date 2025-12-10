@@ -70,6 +70,11 @@ body {
     color: var(--accent-blue);
 }
 
+.accent-red {
+    color: var(--status-red);
+}
+
+
 /* CRT Effects */
 .scanline {
     position: fixed;
