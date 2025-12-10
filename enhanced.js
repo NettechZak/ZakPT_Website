@@ -1144,25 +1144,48 @@ function initNetworkFlow() {
 // ========================================
 
 /**
- * Enhanced typing effect with cursor
+ * Enhanced typing effect with glitch/stutter effect
  */
 function enhancedTypingEffect() {
-    const textToType = "Exploring the digital frontier.";
+    const finalText = "Exploring the digital frontier.";
     const typingElement = document.getElementById('typing-text');
 
     if (!typingElement) return;
 
-    let charIndex = 0;
+    // Clear any existing content
+    typingElement.textContent = '';
 
-    function type() {
-        if (charIndex < textToType.length) {
-            typingElement.textContent += textToType.charAt(charIndex);
-            charIndex++;
-            setTimeout(type, 80 + Math.random() * 40); // Variable speed for realism
+    let charIndex = 0;
+    let currentText = '';
+
+    function typeWithGlitch() {
+        if (charIndex < finalText.length) {
+            const char = finalText.charAt(charIndex);
+            const repeatCount = 2 + Math.floor(Math.random() * 3); // Repeat 2-4 times
+            let glitchIndex = 0;
+
+            // Glitch effect: show the character multiple times
+            const glitchInterval = setInterval(() => {
+                if (glitchIndex < repeatCount) {
+                    // Add repeated character
+                    typingElement.textContent = currentText + char.repeat(glitchIndex + 1);
+                    glitchIndex++;
+                } else {
+                    // Settle on single character
+                    clearInterval(glitchInterval);
+                    currentText += char;
+                    typingElement.textContent = currentText;
+                    charIndex++;
+
+                    // Move to next character
+                    setTimeout(typeWithGlitch, 100 + Math.random() * 50);
+                }
+            }, 40); // Fast glitch speed
         }
     }
 
-    setTimeout(type, 1500);
+    // Start typing after a short delay
+    setTimeout(typeWithGlitch, 1500);
 }
 
 // ========================================
